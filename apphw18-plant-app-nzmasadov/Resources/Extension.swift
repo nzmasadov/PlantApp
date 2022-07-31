@@ -25,13 +25,6 @@ extension UIColor {
 }
 
 extension UIView {
-
-    public func configureLabel(label:UILabel, text:String? = nil, textColor: UIColor? = nil, textAlignment: NSTextAlignment? ) {
-        
-        label.text = text
-        label.textColor = textColor
-        label.textAlignment = textAlignment ?? .left
-    }
     
     func addTapGesture(action : @escaping ()->Void ){
         let tap = MyTapGestureRecognizer(target: self , action: #selector(self.handleTap(_:)))
@@ -59,10 +52,10 @@ class MyTapGestureRecognizer: UITapGestureRecognizer {
 
 extension UIImageView {
     
-    public func configureImage(imageView:UIImageView, contentMode: UIView.ContentMode?, image:UIImage? = nil) {
+    public func configureImage(contentMode: UIView.ContentMode?, image:UIImage? = nil) {
         
-        imageView.image = image
-        imageView.contentMode = contentMode ?? .scaleAspectFit
+        self.image = image
+        self.contentMode = contentMode ?? .scaleAspectFit
     }
 }
 

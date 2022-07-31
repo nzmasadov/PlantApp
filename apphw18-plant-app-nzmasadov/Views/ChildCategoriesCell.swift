@@ -36,7 +36,7 @@ class ChildCategoriesCell: UICollectionViewCell {
     private lazy var plantAmountLbl: UILabel = {
         let label = UILabel()
         
-        label.configureLabel(label: label, text: "3 Plants", textColor: UIColor.blueTone, textAlignment: .left)
+        label.configureLabel(text: "3 Plants", textColor: UIColor.blueTone, textAlignment: .left)
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         contentView.addSubview(label)
         return label
@@ -45,7 +45,7 @@ class ChildCategoriesCell: UICollectionViewCell {
     private lazy var fieldLabel: UILabel = {
         let label = UILabel()
         
-        label.configureLabel(label: label, text: "Living Room", textColor: UIColor.black, textAlignment: .left)
+        label.configureLabel(text: "Living Room", textColor: UIColor.black, textAlignment: .left)
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         contentView.addSubview(label)
         return label

@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 import AVKit
 
-class VideoPlayevVC: UIViewController {
+class VideoPlayerVC: UIViewController {
     
     var videoTitle: String?
     var videoUrl: URL?
@@ -22,8 +22,7 @@ class VideoPlayevVC: UIViewController {
     private lazy var videoView: UIView = {
        let view = UIView()
         
-        view.backgroundColor = .systemCyan
-        
+//        view.backgroundColor = .
         self.view.addSubview(view)
         return view
     }()
@@ -42,7 +41,7 @@ class VideoPlayevVC: UIViewController {
         let button = UIButton()
         
         button.setImage(UIImage(named: "ic_bookmark"), for: .normal)
-        button.setTitle("  Share this plant", for: .normal)
+        button.setTitle("  Share this video", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         button.backgroundColor = .brightGreen
@@ -87,6 +86,6 @@ class VideoPlayevVC: UIViewController {
     }
     
     @objc func shareTapped() {
-        print("shareTapped")
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

@@ -84,7 +84,7 @@ extension TutorialsCell: UICollectionViewDelegateFlowLayout, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = VideoPlayevVC()
+        let vc = VideoPlayerVC()
         vc.videoTitle = self.tutorials[indexPath.row].title
         vc.videoUrl = self.tutorials[indexPath.row].videoUrl
         self.mainVC?.navigationController?.pushViewController(vc, animated: true)

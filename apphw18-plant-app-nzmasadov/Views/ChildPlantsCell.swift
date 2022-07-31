@@ -26,7 +26,7 @@ class ChildPlantsCell: UICollectionViewCell {
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
         
-        label.configureLabel(label: label, text: "Fits well", textColor: UIColor.greenTone, textAlignment: .left)
+        label.configureLabel(text: "Fits well", textColor: UIColor.greenTone, textAlignment: .left)
         label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
         grayView.addSubview(label)
         return label
@@ -44,7 +44,7 @@ class ChildPlantsCell: UICollectionViewCell {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
 
-        label.configureLabel(label: label, textColor: UIColor.black, textAlignment: .left)
+        label.configureLabel(textColor: .black, textAlignment: .left)
         label.numberOfLines = 2
         label.text = "Peperomia \nHouseplan"
         label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)

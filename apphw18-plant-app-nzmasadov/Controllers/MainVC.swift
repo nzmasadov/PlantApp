@@ -77,6 +77,9 @@ class MainVC: UIViewController {
     
     @objc func scanBtnTapped() {
         print("scanBtnTapped")
+        let vc = PlantDetailsVC()
+        vc.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func setupUI() {

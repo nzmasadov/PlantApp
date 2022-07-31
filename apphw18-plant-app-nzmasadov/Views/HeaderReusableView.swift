@@ -15,7 +15,7 @@ class HeaderReusableView: UIView {
     lazy var titleLabel: UILabel = {
        let label = UILabel()
 
-        label.configureLabel(label: label, text: "Popular plants", textColor: UIColor.black, textAlignment: NSTextAlignment.left)
+        label.configureLabel(text: "Popular plants", textColor: UIColor.black, textAlignment: NSTextAlignment.left)
         label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
 
         self.addSubview(label)
@@ -25,7 +25,7 @@ class HeaderReusableView: UIView {
     lazy var viewLabel: UILabel = {
        let label = UILabel()
 
-        label.configureLabel(label: label, text: "View all", textColor: UIColor.greenTone, textAlignment: NSTextAlignment.right)
+        label.configureLabel(text: "View all", textColor: UIColor.greenTone, textAlignment: NSTextAlignment.right)
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         self.addSubview(label)
         return label

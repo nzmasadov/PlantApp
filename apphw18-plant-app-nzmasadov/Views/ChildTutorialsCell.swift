@@ -35,7 +35,7 @@ class ChildTutorialsCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         
-        label.configureLabel(label: label, text: "Water your Cactus today (living room)", textColor: UIColor.black, textAlignment: .left)
+        label.configureLabel(text: "Water your Cactus today (living room)", textColor: UIColor.black, textAlignment: .left)
         label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         contentView.addSubview(label)
@@ -45,7 +45,7 @@ class ChildTutorialsCell: UICollectionViewCell {
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         
-        label.configureLabel(label: label, text: "It’s 2 weeks old, you have to water it twice a week", textColor: UIColor.gray, textAlignment: .left)
+        label.configureLabel(text: "It’s 2 weeks old, you have to water it twice a week", textColor: UIColor.gray, textAlignment: .left)
         label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         contentView.addSubview(label)
         return label
