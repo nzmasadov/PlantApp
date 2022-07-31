@@ -10,7 +10,7 @@ import UIKit
 class TutorialsCell: UICollectionViewCell {
     static let identifier = "TutorialsCell"
     
-    var viewController: UIViewController?
+    var mainVC: UIViewController?
     
     var tutorials: [Tutorials] = [
         Tutorials(title: "Water your Cactus today (living room)", subtitle: "It’s 2 weeks old, you have to water it twice a week", backImg: UIImage(named: "ic_cactus"), videoUrl: URL(string: "https://firebasestorage.googleapis.com/v0/b/paycheap-39445.appspot.com/o/video1.mp4?alt=media&token=34a23140-eb3d-440d-bb72-09013b1835fb")),
@@ -87,6 +87,6 @@ extension TutorialsCell: UICollectionViewDelegateFlowLayout, UICollectionViewDel
         let vc = VideoPlayevVC()
         vc.videoTitle = self.tutorials[indexPath.row].title
         vc.videoUrl = self.tutorials[indexPath.row].videoUrl
-        self.viewController?.navigationController?.pushViewController(vc, animated: true)
+        self.mainVC?.navigationController?.pushViewController(vc, animated: true)
     }
 }

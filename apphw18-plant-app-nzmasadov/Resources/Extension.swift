@@ -21,6 +21,7 @@ extension UIColor {
     static let lightPurpleTone: UIColor = UIColor(red: 0.972, green: 0.908, blue: 0.972, alpha: 1)
     static let purpleTone: UIColor = UIColor(red: 0.647, green: 0.347, blue: 0.853, alpha: 1)
     static let greyTone: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    static let brightGreen: UIColor = UIColor(red: 0.382, green: 0.688, blue: 0.168, alpha: 1)
 }
 
 extension UIView {

@@ -15,8 +15,6 @@ class VideoPlayevVC: UIViewController {
     var videoUrl: URL?
     private var player: AVPlayer?
     
-    
-    
     private lazy var playerViewController: AVPlayerViewController = {
         return AVPlayerViewController()
     }()
@@ -39,6 +37,22 @@ class VideoPlayevVC: UIViewController {
         self.view.addSubview(label)
         return label
     }()
+    
+    private lazy var shareBtn: UIButton = {
+        let button = UIButton()
+        
+        button.setImage(UIImage(named: "ic_bookmark"), for: .normal)
+        button.setTitle("  Share this plant", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        button.backgroundColor = .brightGreen
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(shareTapped), for: .touchUpInside)
+        
+        self.view.addSubview(button)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +62,7 @@ class VideoPlayevVC: UIViewController {
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.height.equalTo(self.videoView.snp.width).multipliedBy(0.5)
+            make.height.equalTo(self.videoView.snp.width).multipliedBy(0.6)
         }
         
         self.titleLabel.snp.makeConstraints { make in
@@ -57,14 +71,22 @@ class VideoPlayevVC: UIViewController {
             make.right.equalTo(videoView.snp.right)
         }
         
+        shareBtn.snp.makeConstraints { make in
+            make.height.equalTo(48)
+            make.left.equalTo(self.view.safeAreaLayoutGuide.snp.left).offset(20)
+            make.right.equalTo(self.view.safeAreaLayoutGuide.snp.right).offset(-20)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
         videoView.addSubview(playerViewController.view)
         
         playerViewController.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        print(videoUrl)
         self.playerViewController.player = AVPlayer(url: self.videoUrl!)
     }
     
-    
+    @objc func shareTapped() {
+        print("shareTapped")
+    }
 }

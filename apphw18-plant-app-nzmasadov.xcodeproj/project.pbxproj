@@ -79,7 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				BF5A9AEC289563CA00AAC026 /* Resources */,
-				BF5A9AE92895637500AAC026 /* Model */,
+				BF5A9AE92895637500AAC026 /* Models */,
 				BF5A9AEA2895637C00AAC026 /* Views */,
 				BF5A9AEB2895638400AAC026 /* Controllers */,
 				BF3E02F7288D3B610029B14D /* Info.plist */,
@@ -87,18 +87,20 @@
 			path = "apphw18-plant-app-nzmasadov";
 			sourceTree = "<group>";
 		};
-		BF5A9AE92895637500AAC026 /* Model */ = {
+		BF5A9AE92895637500AAC026 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				BF28A586289499C3000F27E6 /* Model.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		BF5A9AEA2895637C00AAC026 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BFD702252893390000EF6034 /* ChildCells */,
+				BF3E0304288D538F0029B14D /* ChildPlantsCell.swift */,
+				BFD702262893391F00EF6034 /* ChildCategoriesCell.swift */,
+				BF28A58028947F80000F27E6 /* ChildTutorialsCell.swift */,
 				BF28A5882894A6E8000F27E6 /* HeaderReusableView.swift */,
 			);
 			path = Views;
@@ -126,16 +128,6 @@
 				BF3E02F4288D3B610029B14D /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		BFD702252893390000EF6034 /* ChildCells */ = {
-			isa = PBXGroup;
-			children = (
-				BF3E0304288D538F0029B14D /* ChildPlantsCell.swift */,
-				BFD702262893391F00EF6034 /* ChildCategoriesCell.swift */,
-				BF28A58028947F80000F27E6 /* ChildTutorialsCell.swift */,
-			);
-			path = ChildCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

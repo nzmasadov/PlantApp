@@ -109,7 +109,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TutorialsCell.identifier, for: indexPath) as! TutorialsCell
-            cell.viewController = self
+            cell.mainVC = self
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlantsCell.identifier, for: indexPath)
