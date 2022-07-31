@@ -17,7 +17,7 @@ struct Categories {
     var backgroundColor: UIColor?
     var title: String?
     var image: UIImage?
-    var amount: Int?
+    var amount: String?
 }
 
 struct Tutorials {

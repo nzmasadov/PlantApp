@@ -90,7 +90,7 @@ class ChildCategoriesCell: UICollectionViewCell {
     func setUIComponents(_ category: Categories) {
         backView.backgroundColor = category.backgroundColor
         imageView.image = category.image
-        plantAmountLbl.text = "\(category.amount ?? 0) Plants"
+        plantAmountLbl.text = category.amount
         fieldLabel.text = category.title
     }
 }

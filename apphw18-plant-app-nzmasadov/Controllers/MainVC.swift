@@ -7,6 +7,11 @@
 
 import UIKit
 import SnapKit
+import YPImagePicker
+
+protocol ImageSelectionDelegate: AnyObject {
+    func didSelectImage(image: UIImage)
+}
 
 class MainVC: UIViewController {
     
@@ -15,6 +20,8 @@ class MainVC: UIViewController {
         Item(leftText: "Categories", rightText: "View all"),
         Item(leftText: "Tutorials for today", rightText: "View all")
     ]
+    
+    weak var delegate: ImageSelectionDelegate?
     
     private lazy var mainCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -72,14 +79,38 @@ class MainVC: UIViewController {
     }
     
     @objc func addAction() {
-        print("add")
-    }
-    
-    @objc func scanBtnTapped() {
-        print("scanBtnTapped")
         let vc = PlantDetailsVC()
         vc.navigationController?.navigationBar.isHidden = true
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func scanBtnTapped() {
+        var config = YPImagePickerConfiguration()
+        config.screens = [.library, .photo]
+        config.library.mediaType = .photo
+        config.library.maxNumberOfItems = 2
+        
+        let picker = YPImagePicker(configuration: config)
+        picker.didFinishPicking { items, cancelled in
+            if cancelled {
+                picker.dismiss(animated: true)
+                return
+            }
+            
+            items.forEach { item in
+                switch item {
+                case .photo(let photoItem):
+//                    print("Image source (camera or library) -> \(photoItem.fromCamera)  Final image selected by the user -> \(photoItem.image) original image selected by the user, unfiltered -> \(photoItem.originalImage) Transformed image, can be nil -> \(photoItem.modifiedImage) Print exif meta data of original image-> \(photoItem.exifMeta)")
+                    let vc = PlantDetailsVC()
+                    vc.selectedImage = photoItem.image
+                    self.navigationController?.pushViewController(vc, animated: true)
+                case .video(_):
+                    break
+                }
+            }
+            picker.dismiss(animated: true)
+        }
+        self.present(picker, animated: true)
     }
     
     func setupUI() {

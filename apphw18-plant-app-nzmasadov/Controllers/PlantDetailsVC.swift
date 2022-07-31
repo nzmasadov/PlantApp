@@ -9,19 +9,32 @@ import UIKit
 
 class PlantDetailsVC: UIViewController {
     
-    // change nzm
+    var selectedImage: UIImage?
+    
     let categories: [Categories] = [
-        Categories(backgroundColor: UIColor.lightGreen, title: "Living Room", image: UIImage(named: "ic_grid"), amount: 2),
-        Categories(backgroundColor: UIColor.lightBlueTone, title: "Kitchen", image: UIImage(named: "ic_coffee"), amount: 1),
-        Categories(backgroundColor: UIColor.lightOrangeTone, title: "Drawing Room", image: UIImage(named: "ic_sofa"), amount: 2),
-        Categories(backgroundColor: UIColor.lightPurpleTone, title: "Backyard", image: UIImage(named: "ic_backyard"), amount: 8)
+        Categories(backgroundColor: UIColor.lightGreen, title: "Small", image: UIImage(named: "ic_ruler"), amount: "Weight"),
+        Categories(backgroundColor: UIColor.lightBlueTone, title: "333ml", image: UIImage(named: "ic_water"), amount: "Water"),
+        Categories(backgroundColor: UIColor.lightOrangeTone, title: "Normal", image: UIImage(named: "ic_sun"), amount: "Light"),
+        Categories(backgroundColor: UIColor.lightPurpleTone, title: "56%", image: UIImage(named: "ic_humidity"), amount: "Humidity")
     ]
     
     private lazy var plantImgView: UIImageView = {
        let view = UIImageView()
         
-        view.configureImage(contentMode: UIView.ContentMode.scaleAspectFill, image: UIImage(named: "testImage"))
+        view.configureImage(contentMode: UIView.ContentMode.scaleAspectFill, image: self.selectedImage)
+        view.isUserInteractionEnabled = true
         self.view.addSubview(view)
+        return view
+    }()
+    
+    private lazy var cancelImgView: UIImageView = {
+       let view = UIImageView()
+        
+        view.configureImage(contentMode: UIView.ContentMode.scaleAspectFill, image: UIImage(named: "ic_exit"))
+        view.backgroundColor = .black.withAlphaComponent(0.3)
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 17
+        self.plantImgView.addSubview(view)
         return view
     }()
         
@@ -67,7 +80,6 @@ class PlantDetailsVC: UIViewController {
     
     private lazy var shareBtn: UIButton = {
         let button = UIButton()
-        
         button.setImage(UIImage(named: "ic_bookmark"), for: .normal)
         button.setTitle("  Share this video", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
@@ -86,13 +98,23 @@ class PlantDetailsVC: UIViewController {
         setupUI()
         self.navigationController?.navigationBar.isHidden = true
         collectionView.register(ChildCategoriesCell.self, forCellWithReuseIdentifier: ChildCategoriesCell.identifier)
+        cancelImgView.isUserInteractionEnabled = true
+        cancelImgView.addTapGesture {
+            self.navigationController?.popToRootViewController(animated: true)
+            print("tapped")
+        }
     }
     
     private func setupUI() {
-        
         plantImgView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
             make.height.equalTo(250)
+        }
+        
+        cancelImgView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(40)
+            make.right.equalToSuperview().offset(-20)
+            make.height.width.equalTo(34)
         }
         
         contentView.snp.makeConstraints { make in
@@ -127,7 +149,7 @@ class PlantDetailsVC: UIViewController {
     }
     
     @objc func shareTapped() {
-            }
+    }
 }
 
 extension PlantDetailsVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -138,7 +160,6 @@ extension PlantDetailsVC : UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChildCategoriesCell.identifier, for: indexPath) as! ChildCategoriesCell
-        
             cell.setUIComponents(categories[indexPath.row])
             return cell
     }
@@ -150,5 +171,4 @@ extension PlantDetailsVC : UICollectionViewDelegate, UICollectionViewDataSource,
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 //        return 20
 //    }
-    
 }

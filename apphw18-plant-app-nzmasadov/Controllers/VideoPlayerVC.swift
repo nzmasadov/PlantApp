@@ -22,7 +22,6 @@ class VideoPlayerVC: UIViewController {
     private lazy var videoView: UIView = {
        let view = UIView()
         
-//        view.backgroundColor = .
         self.view.addSubview(view)
         return view
     }()

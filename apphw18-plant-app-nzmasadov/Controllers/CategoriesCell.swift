@@ -11,10 +11,10 @@ class CategoriesCell: UICollectionViewCell {
     static let identifier = "CategoriesCell"
     
     let categories: [Categories] = [
-        Categories(backgroundColor: UIColor.lightGreen, title: "Living Room", image: UIImage(named: "ic_grid"), amount: 2),
-        Categories(backgroundColor: UIColor.lightBlueTone, title: "Kitchen", image: UIImage(named: "ic_coffee"), amount: 1),
-        Categories(backgroundColor: UIColor.lightOrangeTone, title: "Drawing Room", image: UIImage(named: "ic_sofa"), amount: 2),
-        Categories(backgroundColor: UIColor.lightPurpleTone, title: "Backyard", image: UIImage(named: "ic_backyard"), amount: 8)
+        Categories(backgroundColor: UIColor.lightGreen, title: "Living Room", image: UIImage(named: "ic_grid"), amount: "2 Plants"),
+        Categories(backgroundColor: UIColor.lightBlueTone, title: "Kitchen", image: UIImage(named: "ic_coffee"), amount: "1 Plant"),
+        Categories(backgroundColor: UIColor.lightOrangeTone, title: "Drawing Room", image: UIImage(named: "ic_sofa"), amount: "2 Plants"),
+        Categories(backgroundColor: UIColor.lightPurpleTone, title: "Backyard", image: UIImage(named: "ic_backyard"), amount: "8 Plants")
     ]
     
     private lazy var headerView : HeaderReusableView = {
