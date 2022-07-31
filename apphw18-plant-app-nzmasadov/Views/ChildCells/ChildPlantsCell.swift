@@ -26,7 +26,7 @@ class ChildPlantsCell: UICollectionViewCell {
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
         
-        label.configureLabel(label: label, textColor: UIColor.greenTone, textAlignment: .left)
+        label.configureLabel(label: label, text: "Fits well", textColor: UIColor.greenTone, textAlignment: .left)
         label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
         grayView.addSubview(label)
         return label

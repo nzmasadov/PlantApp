@@ -24,6 +24,7 @@ struct Tutorials {
     var title: String?
     var subtitle: String?
     var backImg: UIImage?
+    var videoUrl: URL?
 }
 
 struct Item {

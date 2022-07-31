@@ -21,7 +21,6 @@ extension UIColor {
     static let lightPurpleTone: UIColor = UIColor(red: 0.972, green: 0.908, blue: 0.972, alpha: 1)
     static let purpleTone: UIColor = UIColor(red: 0.647, green: 0.347, blue: 0.853, alpha: 1)
     static let greyTone: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-//    static let backColor: UIColor = UIColor(red: 0.337, green: 0.463, blue: 0.863, alpha: 1)
 }
 
 extension UIView {
@@ -63,5 +62,14 @@ extension UIImageView {
         
         imageView.image = image
         imageView.contentMode = contentMode ?? .scaleAspectFit
+    }
+}
+
+extension UILabel {
+
+    func configureLabel(text:String? = nil, textColor: UIColor? = nil, textAlignment: NSTextAlignment? ) {
+        self.text = text
+        self.textColor = textColor
+        self.textAlignment = textAlignment ?? .left
     }
 }

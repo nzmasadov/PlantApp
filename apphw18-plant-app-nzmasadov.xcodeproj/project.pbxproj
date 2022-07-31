@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF20DD9C289672C500F3F9B4 /* VideoPlayevVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF20DD9B289672C400F3F9B4 /* VideoPlayevVC.swift */; };
 		BF22F7432891A4D6000AAAD7 /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF22F7422891A4D6000AAAD7 /* YPImagePicker */; };
 		BF22F7452891A5C7000AAAD7 /* PlantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22F7442891A5C7000AAAD7 /* PlantsCell.swift */; };
 		BF28A58128947F80000F27E6 /* ChildTutorialsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF28A58028947F80000F27E6 /* ChildTutorialsCell.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF20DD9B289672C400F3F9B4 /* VideoPlayevVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayevVC.swift; sourceTree = "<group>"; };
 		BF22F7442891A5C7000AAAD7 /* PlantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsCell.swift; sourceTree = "<group>"; };
 		BF28A58028947F80000F27E6 /* ChildTutorialsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildTutorialsCell.swift; sourceTree = "<group>"; };
 		BF28A582289492DB000F27E6 /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
@@ -76,21 +78,54 @@
 		BF3E02E8288D3B5F0029B14D /* apphw18-plant-app-nzmasadov */ = {
 			isa = PBXGroup;
 			children = (
-				BF3E02E9288D3B5F0029B14D /* AppDelegate.swift */,
+				BF5A9AEC289563CA00AAC026 /* Resources */,
+				BF5A9AE92895637500AAC026 /* Model */,
+				BF5A9AEA2895637C00AAC026 /* Views */,
+				BF5A9AEB2895638400AAC026 /* Controllers */,
+				BF3E02F7288D3B610029B14D /* Info.plist */,
+			);
+			path = "apphw18-plant-app-nzmasadov";
+			sourceTree = "<group>";
+		};
+		BF5A9AE92895637500AAC026 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				BF28A586289499C3000F27E6 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF5A9AEA2895637C00AAC026 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BFD702252893390000EF6034 /* ChildCells */,
+				BF28A5882894A6E8000F27E6 /* HeaderReusableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF5A9AEB2895638400AAC026 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF3E02FF288D43EE0029B14D /* MainNavigationController.swift */,
 				BF3E02ED288D3B5F0029B14D /* MainVC.swift */,
 				BF22F7442891A5C7000AAAD7 /* PlantsCell.swift */,
 				BF28A582289492DB000F27E6 /* CategoriesCell.swift */,
 				BF28A584289492E6000F27E6 /* TutorialsCell.swift */,
-				BF28A5882894A6E8000F27E6 /* HeaderReusableView.swift */,
-				BFD702252893390000EF6034 /* ChildCells */,
-				BF3E02FF288D43EE0029B14D /* MainNavigationController.swift */,
+				BF20DD9B289672C400F3F9B4 /* VideoPlayevVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BF5A9AEC289563CA00AAC026 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BF3E02E9288D3B5F0029B14D /* AppDelegate.swift */,
 				BF3E02FD288D3BCC0029B14D /* Extension.swift */,
 				BF3E02F2288D3B610029B14D /* Assets.xcassets */,
 				BF3E02F4288D3B610029B14D /* LaunchScreen.storyboard */,
-				BF3E02F7288D3B610029B14D /* Info.plist */,
 			);
-			path = "apphw18-plant-app-nzmasadov";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		BFD702252893390000EF6034 /* ChildCells */ = {
@@ -190,6 +225,7 @@
 				BF3E0300288D43EE0029B14D /* MainNavigationController.swift in Sources */,
 				BF28A5892894A6E8000F27E6 /* HeaderReusableView.swift in Sources */,
 				BF3E0305288D53900029B14D /* ChildPlantsCell.swift in Sources */,
+				BF20DD9C289672C500F3F9B4 /* VideoPlayevVC.swift in Sources */,
 				BF28A587289499C3000F27E6 /* Model.swift in Sources */,
 				BFD702272893391F00EF6034 /* ChildCategoriesCell.swift in Sources */,
 				BF3E02EA288D3B5F0029B14D /* AppDelegate.swift in Sources */,

@@ -10,9 +10,11 @@ import UIKit
 class TutorialsCell: UICollectionViewCell {
     static let identifier = "TutorialsCell"
     
+    var viewController: UIViewController?
+    
     var tutorials: [Tutorials] = [
-        Tutorials(title: "Water your Cactus today (living room)", subtitle: "It’s 2 weeks old, you have to water it twice a week", backImg: UIImage(named: "ic_cactus")),
-        Tutorials(title: "Prune the dead branches of Bamboo too weak ", subtitle: "It’s been 2-3 weeks since you have prune the dead ", backImg: UIImage(named: "ic_leaf"))
+        Tutorials(title: "Water your Cactus today (living room)", subtitle: "It’s 2 weeks old, you have to water it twice a week", backImg: UIImage(named: "ic_cactus"), videoUrl: URL(string: "https://firebasestorage.googleapis.com/v0/b/paycheap-39445.appspot.com/o/video1.mp4?alt=media&token=34a23140-eb3d-440d-bb72-09013b1835fb")),
+        Tutorials(title: "Prune the dead branches of Bamboo too weak ", subtitle: "It’s been 2-3 weeks since you have prune the dead ", backImg: UIImage(named: "ic_leaf"),  videoUrl: URL(string: "https://firebasestorage.googleapis.com/v0/b/paycheap-39445.appspot.com/o/video2.mp4?alt=media&token=ae74a642-ab75-4e2b-a7da-cbd97295c457"))
     ]
     
     private lazy var headerView : HeaderReusableView = {
@@ -79,5 +81,12 @@ extension TutorialsCell: UICollectionViewDelegateFlowLayout, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = VideoPlayevVC()
+        vc.videoTitle = self.tutorials[indexPath.row].title
+        vc.videoUrl = self.tutorials[indexPath.row].videoUrl
+        self.viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
