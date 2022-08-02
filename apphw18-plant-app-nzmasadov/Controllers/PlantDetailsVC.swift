@@ -81,7 +81,7 @@ class PlantDetailsVC: UIViewController {
     private lazy var shareBtn: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "ic_bookmark"), for: .normal)
-        button.setTitle("  Share this video", for: .normal)
+        button.setTitle("  Share this plant", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         button.backgroundColor = .brightGreen
@@ -149,6 +149,10 @@ class PlantDetailsVC: UIViewController {
     }
     
     @objc func shareTapped() {
+        let imageShare = [selectedImage]
+        let activityViewController = UIActivityViewController(activityItems: imageShare as [Any] , applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
     }
 }
 
