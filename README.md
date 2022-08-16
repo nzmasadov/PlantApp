@@ -11,3 +11,5 @@ apphw18-plant-app-nzmasadov created by GitHub Classroom
 <img width="361" alt="Screen Shot 2022-07-31 at 21 15 30" src="https://user-images.githubusercontent.com/97827145/182038351-02c29676-81d8-468d-8da1-4cd4dab64860.png">
 
 <img width="364" alt="Screen Shot 2022-07-31 at 21 28 40" src="https://user-images.githubusercontent.com/97827145/182038349-025defec-9751-4258-aba6-cce6066b254f.png">
+
+<img width="366" alt="Screen Shot 2022-08-02 at 04 21 43" src="https://user-images.githubusercontent.com/97827145/182266587-fe1a712f-17e7-4610-a7c2-39a28bee5a99.png">
