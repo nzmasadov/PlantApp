@@ -15,10 +15,10 @@ protocol ImageSelectionDelegate: AnyObject {
 
 class MainVC: UIViewController {
     
-    var items: [Item] = [
-        Item(leftText: "Popular plants", rightText: "View all"),
-        Item(leftText: "Categories", rightText: "View all"),
-        Item(leftText: "Tutorials for today", rightText: "View all")
+    var items = [
+        Item(type: .popular, plantName: "Popular plants", viewAll: "View all"),
+        Item(type: .category, plantName: "Categories", viewAll: "View all"),
+        Item(type: .tutorial, plantName: "Tutorials for today", viewAll: "View all")
     ]
     
     weak var delegate: ImageSelectionDelegate?
@@ -56,6 +56,7 @@ class MainVC: UIViewController {
     }()
     
     //MARK: - Pattern Delegates
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -66,9 +67,7 @@ class MainVC: UIViewController {
         ]
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "My Plants", style: .done, target: self, action: nil)
         
-        mainCollectionView.register(PlantsCell.self, forCellWithReuseIdentifier: PlantsCell.identifier)
-        mainCollectionView.register(CategoriesCell.self, forCellWithReuseIdentifier: CategoriesCell.identifier)
-        mainCollectionView.register(TutorialsCell.self, forCellWithReuseIdentifier: TutorialsCell.identifier)
+        collectionConfiguration()
         
 //        mainCollectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.identifier)
         setupUI()
@@ -76,7 +75,8 @@ class MainVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        
+        navigationController?.navigationBar.isHidden = false
     }
     
     @objc func searchAction() {
@@ -130,8 +130,13 @@ class MainVC: UIViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
         }
     }
+    
+    fileprivate func collectionConfiguration() {
+        mainCollectionView.register(PlantsCell.self, forCellWithReuseIdentifier: "\(PlantsCell.self )")
+        mainCollectionView.register(CategoriesCell.self, forCellWithReuseIdentifier: "\(CategoriesCell.self)")
+        mainCollectionView.register(TutorialsCell.self, forCellWithReuseIdentifier: "\(TutorialsCell.self)")
+    }
 }
-
 
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -139,33 +144,31 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.row {
-        case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlantsCell.identifier, for: indexPath)
+        switch items[indexPath.row].type {
+        case .popular:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(PlantsCell.self)", for: indexPath) as! PlantsCell
+            cell.configureHeader(title: items[indexPath.row].plantName ?? "")
             return cell
-        case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCell.identifier, for: indexPath)
+        case .category:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(CategoriesCell.self)", for: indexPath) as! CategoriesCell
+            cell.configureHeader(title: items[indexPath.row].plantName ?? "")
             return cell
-        case 2:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TutorialsCell.identifier, for: indexPath) as! TutorialsCell
+        case .tutorial:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TutorialsCell.self)", for: indexPath) as! TutorialsCell
+            cell.configureHeader(title: items[indexPath.row].plantName ?? "")
             cell.mainVC = self
-            return cell
-        default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlantsCell.identifier, for: indexPath)
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        switch indexPath.row {
-        case 0:
+        switch items[indexPath.row].type {
+        case .popular:
            return CGSize(width: self.view.frame.width - 40, height: 207)
-        case 1:
+        case .category:
             return CGSize(width: self.view.frame.width - 40, height: 180)
-        case 2:
-            return CGSize(width: self.view.frame.width - 40, height: 180)
-        default:
+        case .tutorial:
             return CGSize(width: self.view.frame.width - 40, height: 180)
         }
     }

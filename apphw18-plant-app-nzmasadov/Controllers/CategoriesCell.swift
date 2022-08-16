@@ -8,7 +8,6 @@
 import UIKit
 
 class CategoriesCell: UICollectionViewCell {
-    static let identifier = "CategoriesCell"
     
     let categories: [Categories] = [
         Categories(backgroundColor: UIColor.lightGreen, title: "Living Room", image: UIImage(named: "ic_grid"), amount: "2 Plants"),
@@ -20,7 +19,6 @@ class CategoriesCell: UICollectionViewCell {
     private lazy var headerView : HeaderReusableView = {
         let view = HeaderReusableView()
         
-        view.titleLabel.text = "Categories"
         contentView.addSubview(view)
         return view
     }()
@@ -51,7 +49,7 @@ class CategoriesCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        collectionView.register(ChildCategoriesCell.self, forCellWithReuseIdentifier: ChildCategoriesCell.identifier)
+        collectionView.register(ChildCategoriesCell.self, forCellWithReuseIdentifier:  "\(ChildCategoriesCell.self)")
         
         headerView.snp.makeConstraints { make in
             make.top.right.left.equalToSuperview()
@@ -62,6 +60,10 @@ class CategoriesCell: UICollectionViewCell {
             make.bottom.right.left.equalToSuperview()
         }
     }
+    
+    func configureHeader(title: String) {
+        headerView.titleLabel.text = title
+    }
 }
 
 extension CategoriesCell: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -70,7 +72,7 @@ extension CategoriesCell: UICollectionViewDelegateFlowLayout, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChildCategoriesCell.identifier, for: indexPath) as! ChildCategoriesCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ChildCategoriesCell.self)", for: indexPath) as! ChildCategoriesCell
         
             cell.setUIComponents(categories[indexPath.row])
             return cell

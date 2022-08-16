@@ -17,8 +17,8 @@ class MainNavigationController: UINavigationController {
 //        navigationBar.isTranslucent = true
         navigationBar.isTranslucent = true
         navigationBar.barStyle = .default
-        navigationBar.barTintColor = .white
-        navigationBar.backgroundColor = .white
+        navigationBar.barTintColor = .clear
+        navigationBar.backgroundColor = .clear
         navigationBar.tintColor = .black
     }
 }

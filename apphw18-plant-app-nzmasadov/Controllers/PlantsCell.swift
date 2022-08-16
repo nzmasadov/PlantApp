@@ -8,9 +8,7 @@
 import UIKit
 
 class PlantsCell: UICollectionViewCell {
-    
-    static let identifier = "PlantsCell"
-    
+        
     var plants: [Plants] = [
         Plants(name: "Peperomia Houseplant", image: UIImage(named: "ic_plant_aloa")),
         Plants(name: "Asplenium Houseplant", image: UIImage(named: "ic_plant_2"))
@@ -18,8 +16,7 @@ class PlantsCell: UICollectionViewCell {
     
     private lazy var headerView : HeaderReusableView = {
         let view = HeaderReusableView()
-        
-        view.titleLabel.text = "Popular plants"
+                
         contentView.addSubview(view)
         return view
     }()
@@ -50,7 +47,7 @@ class PlantsCell: UICollectionViewCell {
     
     private func setupUI() {
     
-        collectionView.register(ChildPlantsCell.self, forCellWithReuseIdentifier: ChildPlantsCell.identifier)
+        collectionView.register(ChildPlantsCell.self, forCellWithReuseIdentifier: "\(ChildPlantsCell.self)")
   
         headerView.snp.makeConstraints { make in
             make.top.right.left.equalToSuperview()
@@ -61,6 +58,10 @@ class PlantsCell: UICollectionViewCell {
             make.bottom.right.left.equalToSuperview()
         }
     }
+    
+    func configureHeader(title: String) {
+        headerView.titleLabel.text = title
+    }
 }
 
 extension PlantsCell: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -69,7 +70,7 @@ extension PlantsCell: UICollectionViewDelegateFlowLayout, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChildPlantsCell.identifier, for: indexPath) as! ChildPlantsCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ChildPlantsCell.self)", for: indexPath) as! ChildPlantsCell
         
         cell.setUIComponents(plants[indexPath.row])
             return cell

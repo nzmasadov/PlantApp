@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 class HeaderReusableView: UIView {
-    
-//    static let identifier = "HeaderReusableView"
-    
+        
     lazy var titleLabel: UILabel = {
        let label = UILabel()
 

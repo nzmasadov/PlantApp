@@ -28,6 +28,13 @@ struct Tutorials {
 }
 
 struct Item {
-    var leftText: String?
-    var rightText: String?
+    var type: ItemType
+    var plantName: String?
+    var viewAll: String?
+    
+    enum ItemType {
+        case popular
+        case category
+        case tutorial
+    }
 }

@@ -8,7 +8,6 @@
 import UIKit
 
 class TutorialsCell: UICollectionViewCell {
-    static let identifier = "TutorialsCell"
     
     var mainVC: UIViewController?
     
@@ -20,7 +19,6 @@ class TutorialsCell: UICollectionViewCell {
     private lazy var headerView : HeaderReusableView = {
         let view = HeaderReusableView()
         
-        view.titleLabel.text = "Tutorials for today"
         contentView.addSubview(view)
         return view
     }()
@@ -51,7 +49,7 @@ class TutorialsCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        collectionView.register(ChildTutorialsCell.self, forCellWithReuseIdentifier: ChildTutorialsCell.identifier)
+        collectionView.register(ChildTutorialsCell.self, forCellWithReuseIdentifier: "\(ChildTutorialsCell.self)")
 
         headerView.snp.makeConstraints { make in
             make.top.right.left.equalToSuperview()
@@ -62,6 +60,10 @@ class TutorialsCell: UICollectionViewCell {
             make.bottom.right.left.equalToSuperview()
         }
     }
+    
+    func configureHeader(title: String) {
+        headerView.titleLabel.text = title
+    }
 }
 
 extension TutorialsCell: UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -70,7 +72,7 @@ extension TutorialsCell: UICollectionViewDelegateFlowLayout, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChildTutorialsCell.identifier, for: indexPath) as! ChildTutorialsCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ChildTutorialsCell.self)", for: indexPath) as! ChildTutorialsCell
             cell.setUIComponents(tutorials[indexPath.row])
             return cell
     }

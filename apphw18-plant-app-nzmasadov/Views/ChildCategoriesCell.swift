@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 class ChildCategoriesCell: UICollectionViewCell {
-    
-    static let identifier = "ChildCategoriesCell"
-    
+        
     private lazy var backView : UIView = {
         let view = UIView()
         

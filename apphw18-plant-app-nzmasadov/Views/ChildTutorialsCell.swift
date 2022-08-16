@@ -8,7 +8,6 @@
 import UIKit
 
 class ChildTutorialsCell: UICollectionViewCell {
-    static let identifier = "ChildTutorialsCell"
     
     private lazy var backImageView : UIImageView = {
         let imgView = UIImageView()

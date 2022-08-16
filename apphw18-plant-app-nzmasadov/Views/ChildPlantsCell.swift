@@ -9,9 +9,7 @@ import UIKit
 import SnapKit
 
 class ChildPlantsCell: UICollectionViewCell {
-  
-    static let identifier = "ChildPlantsCell"
-    
+      
     private lazy var grayView : UIView = {
         let view = UIView()
         

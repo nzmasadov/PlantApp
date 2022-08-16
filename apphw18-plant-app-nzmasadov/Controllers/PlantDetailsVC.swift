@@ -97,7 +97,7 @@ class PlantDetailsVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         self.navigationController?.navigationBar.isHidden = true
-        collectionView.register(ChildCategoriesCell.self, forCellWithReuseIdentifier: ChildCategoriesCell.identifier)
+        collectionView.register(ChildCategoriesCell.self, forCellWithReuseIdentifier: "\(ChildCategoriesCell.self)")
         cancelImgView.isUserInteractionEnabled = true
         cancelImgView.addTapGesture {
             self.navigationController?.popToRootViewController(animated: true)
@@ -163,7 +163,7 @@ extension PlantDetailsVC : UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChildCategoriesCell.identifier, for: indexPath) as! ChildCategoriesCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ChildCategoriesCell.self)", for: indexPath) as! ChildCategoriesCell
             cell.setUIComponents(categories[indexPath.row])
             return cell
     }
